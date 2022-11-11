@@ -1,8 +1,0 @@
-{
-    "baseUrl": "http://localhost:3000",
-    "chromeWebSecurity": false,
-    "env": {
-        "headersBlocklist": ["ignore-me-globally"],
-        "ignoreDefaultBlocklist": true
-    }
-}
