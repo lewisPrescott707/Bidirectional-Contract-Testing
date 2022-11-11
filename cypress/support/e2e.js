@@ -16,4 +16,3 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 // import pact adapter
-import '@pactflow/pact-cypress-adapter'
