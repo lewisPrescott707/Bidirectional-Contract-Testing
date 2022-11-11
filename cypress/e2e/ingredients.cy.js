@@ -1,4 +1,5 @@
 describe('Great British Bake Off', () => {
+    const url = '/ingredients/chocolate'
     before(() => {
         // setup pact
         cy.setupPact('bake-off-ui', 'ingredients-api')
@@ -12,7 +13,7 @@ describe('Great British Bake Off', () => {
     })
 
     it('Cake ingredients', () => {
-        cy.visit('/ingredients/chocolate')
+        cy.visit(url)
         cy.get('button').click()
         // use pact wait
         cy.usePactWait('ingredients').its('response.statusCode').should('eq', 200)
