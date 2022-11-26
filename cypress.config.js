@@ -11,5 +11,6 @@ module.exports = defineConfig({
       return (on, config)
     },
     baseUrl: 'http://localhost:3000',
+    video: false
   },
 })
