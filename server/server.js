@@ -21,6 +21,8 @@ app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
 
+app.get('/', (req, res) => res.status(200).json({status: "ok"}))
+
 app.get('/ingredients/:cakeName', (req, res) => {
     const name = req.params.cakeName;
     if (name === "chocolate" || name === "0" || name === 0) {
