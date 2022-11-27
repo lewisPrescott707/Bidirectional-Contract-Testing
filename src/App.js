@@ -19,7 +19,6 @@ function App() {
 
     axios.get(`${process.env.REACT_APP_API_URL}${CAKE_URL}`, {
       headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_API_TOKEN}`,
         Accept: 'application/json'
       }
     })
