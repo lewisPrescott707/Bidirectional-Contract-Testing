@@ -1,0 +1,36 @@
+openapi: 3.0.3
+info:
+    title: Swagger Cake API
+    description: |-
+      API for bake off cake ingredients
+    license: 
+      name: Apache 2.0
+    version: 0.0.1
+tags:
+  - name: cake
+    description: Cake ingredients
+paths:
+    /ingredients/{cakeName}:
+        get:
+            tags:
+              - cake
+            summary: Get ingredients by cake name
+            description: returns list of cake ingredients
+            operationId: getCakeByName
+            parameters:
+              - name: cakeName
+                in: path
+                description: Name of cake
+                required: true
+                schema:
+                    type: string
+                    default: chocolate
+            responses:
+              200:
+                description: OK
+                headers:
+                  Access-Control-Allow-Origin:
+                    schema: 
+                      type: string
+                      default: "*"
+                    description: "*"
