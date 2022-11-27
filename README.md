@@ -22,4 +22,4 @@ Run app before tests:
 
 ## Schemathesis
 
-1. `docker run -v $(pwd):/mnt kiwicom/schemathesis:stable run --base-url http://127.0.0.1:8080 --checks=all --validate-schema=false /mnt/api-swagger.yml`
+1. `docker run -v $(pwd)/server:/mnt kiwicom/schemathesis:stable run --base-url https://bake-off-api.onrender.com --checks=all --validate-schema=false /mnt/api-swagger.yml`

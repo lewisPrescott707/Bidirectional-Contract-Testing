@@ -30,7 +30,7 @@ app.get('/ingredients/:cakeName', (req, res) => {
             "sugar"
         ]);
     } else {
-        return res.status(404).json({
+        return res.status(200).json({
             message: "Cake not found",
         });
     }
