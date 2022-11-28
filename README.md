@@ -18,14 +18,12 @@ Run app before tests:
 1. Launch another command prompt (cmd)
 1. `npm run cy:open`
 
-## Server
-
 ## Schemathesis
 
 Run swagger tests
-1. API Deployed to environment
+1. API Deployed to [render.com](https://render.com/docs/deploy-node-express-app)
 1. `docker run -v $(pwd)/server:/mnt kiwicom/schemathesis:stable run --base-url https://bake-off-api.onrender.com --checks=all --validate-schema=false --junit-xml=/mnt/swagger.xml /mnt/api-swagger.yml`    
 
 Publish results
-1. `sudo chmod 755 ./server/publish.sh`
-1. `./server/publish.sh`
+1. Mac: `sudo chmod 755 ./server/publish.sh`
+1. Terminal: `./server/publish.sh`
