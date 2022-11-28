@@ -46,8 +46,28 @@
 								},
 								"description": "*"
 							}
+						},
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "array",
+									"items": {
+										"type": "string"
+									}
+								}
+							}
 						}
 					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"Ingredients": {
+				"type": "array",
+				"items": {
+					"type": "string"
 				}
 			}
 		}

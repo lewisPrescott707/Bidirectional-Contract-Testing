@@ -34,3 +34,13 @@ paths:
                       type: string
                       default: "*"
                     description: "*"
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/Ingredients'
+components:
+  schemas:
+    Ingredients:
+      type: array
+      items:
+        type: string
