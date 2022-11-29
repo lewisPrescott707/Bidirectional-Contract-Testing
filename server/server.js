@@ -1,40 +1,61 @@
 // Require express
 const express = require("express");
+const router = require('express').Router();
 // Initialize express
 const app = express();
 const PORT = 8080;
 const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
+const swaggerJSDoc = require('swagger-jsdoc');
+const ingredients = require('./routes/ingredients');
 
-// parse JSON
-app.use(express.json());
+const swaggerDefinition = {
+    openapi: '3.0.3',
+    info: {
+        title: 'Swagger Cake API',
+        version: '0.0.2',
+        description:
+            'API for bake off cake ingredients',
+        license: {
+            name: 'Licensed Under MIT',
+            url: 'https://spdx.org/licenses/MIT.html',
+        },
+    },
+    tags: [
+        {
+            "name": "cake",
+            "description": "Cake ingredients"
+        }
+    ],
+};
+
+const options = {
+    swaggerDefinition,
+    apis: ['./routes/*.js'],
+};
+
+const swaggerSpec = swaggerJSDoc(options);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 app.use((req, res, next) => {
     res.append('Access-Control-Allow-Origin', ['*']);
     res.append('Content-Type', "application/json");
     next();
 });
-// parse URL encoded data
+
 app.use(express.urlencoded({ extended: true }));
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use(express.json());
+
 // create a server
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
 
-app.get('/', (req, res) => res.status(200).json({status: "ok"}))
+app.get('/', (req, res) => res.status(200).json({ status: "ok" }))
 
-app.get('/ingredients/:cakeName', (req, res) => {
-    const name = req.params.cakeName;
-    if (name === "chocolate" || name === "0" || name === 0) {
-        return res.status(200).json([
-            "sugar"
-        ]);
-    } else {
-        return res.status(200).json(["Cake not found"]);
-    }
-});
+app.use('/ingredients/:cakeName', ingredients);
 
 app.get('/swagger.json', function (req, res) {
-    res.setHeader('Content-Type', 'application/json');
-    res.send(swaggerDocument);
+     res.setHeader('Content-Type', 'application/json');
+     res.send(swaggerSpec);
 });
