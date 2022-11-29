@@ -35,6 +35,8 @@ const options = {
 
 const swaggerSpec = swaggerJSDoc(options);
 
+app.use(express.json());
+
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use((req, res, next) => {
@@ -44,7 +46,6 @@ app.use((req, res, next) => {
 });
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
 
 // create a server
 app.listen(PORT, () => {
@@ -53,7 +54,7 @@ app.listen(PORT, () => {
 
 app.get('/', (req, res) => res.status(200).json({ status: "ok" }))
 
-app.use('/ingredients/:cakeName', ingredients);
+app.use('/', ingredients);
 
 app.get('/swagger.json', function (req, res) {
      res.setHeader('Content-Type', 'application/json');

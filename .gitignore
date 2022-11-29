@@ -8,6 +8,7 @@
 # testing
 /coverage
 swagger.xml
+swagger.json
 
 # production
 /build
