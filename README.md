@@ -17,3 +17,12 @@ Run app before tests:
 
 1. Launch another command prompt (cmd)
 1. `npm run cy:open`
+
+## Schemathesis
+
+Run swagger tests
+1. API Deployed to [render.com](https://render.com/docs/deploy-node-express-app)  
+
+Publish results
+1. Mac: `sudo chmod 755 ./server/publish.sh`
+1. Terminal: `./server/publish.sh <PACT_BROKER_TOKEN> <PROVIDER_VERSION>`
