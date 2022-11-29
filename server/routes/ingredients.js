@@ -31,6 +31,7 @@ const router = express.Router();
  *                 type: string
  */
 router.get('/ingredients/:cakeName', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
     const name = req.params.cakeName;
     if (name === "chocolate" || name === "0" || name === 0) {
         return res.status(200).json([

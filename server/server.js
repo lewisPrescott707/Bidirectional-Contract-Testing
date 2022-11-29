@@ -41,7 +41,6 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use((req, res, next) => {
     res.append('Access-Control-Allow-Origin', ['*']);
-    res.append('Content-Type', "application/json");
     next();
 });
 
