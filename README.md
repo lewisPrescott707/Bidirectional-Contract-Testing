@@ -15,7 +15,7 @@ Run swagger tests
 
 Publish results
 1. Mac: `sudo chmod 755 ./server/publish.sh`
-1. Terminal: `./server/publish.sh <PACT_BROKER_TOKEN> <PROVIDER_VERSION>`
+1. Terminal/CMD: `./server/publish.sh <PACT_BROKER_TOKEN> <PROVIDER_VERSION>` / `./server/publish.bat <PACT_BROKER_TOKEN> <PROVIDER_VERSION>`
 
 ## App
 
@@ -28,4 +28,4 @@ Run app before tests:
 1. Launch another command prompt (cmd)
 1. `npm run cy:open` or `npm run cy:run`
 1. Mac: `sudo chmod 755 ./publish.sh`
-1. `./publish.sh`
+1. Terminal/CMD: `./publish.sh <PACT_BROKER_TOKEN> <CONSUMER_VERSION>` / `.\publish.bat <PACT_BROKER_TOKEN> <CONSUMER_VERSION>`
