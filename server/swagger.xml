@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<testsuites disabled="0" errors="0" failures="0" tests="1" time="7.642173399995954">
+	<testsuite disabled="0" errors="0" failures="0" name="schemathesis" skipped="0" tests="1" time="7.642173399995954" hostname="3692e5d5b13e">
+		<testcase name="GET /ingredients/{cakeName}" time="7.642173"/>
+	</testsuite>
+</testsuites>
